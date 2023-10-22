@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Games</h1>
+<ul>
+    {% for game in upcoming_games %}
+        <li>{{ game.teams }}</li>
+        <li>Game: {{ game.teams }}</li>
+        <li>Date: {{ game.game_date_time }}</li>
+        <li>Spread Away: {{ game.spread_away }}</li>
+        <li>Spread Away Payout: {{ game.spread_away_payout }}</li>
+        <li>Spread Home: {{ game.spread_home }}</li>
+        <li>Spread Home Payout: {{ game.spread_home_payout }}</li>
+        <li>Total Points Away: {{ game.total_points_away}}</li>
+        <li>Total Points Away Payout: {{ game.total_points_away_payout}}</li>
+        <li>Total Points Home: {{ game.total_points_home}}</li>
+        <li>Total Points Home Payout: {{ game.total_points_home_payout}}</li>
+        <li>Money Line Away: {{ game.money_line_away}}</li>
+        <li>Money Line Home: {{ game.money_line_home}}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
