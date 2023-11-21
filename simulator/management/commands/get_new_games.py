@@ -1,7 +1,7 @@
 from django.core.management import BaseCommand
 from bs4 import BeautifulSoup
 import requests
-import json
+#import json
 from simulator.models import Game
 
 
@@ -23,11 +23,11 @@ class Command(BaseCommand):
         url = options.get('url')
         result = requests.get(url)
         doc = BeautifulSoup(result.text, "html.parser")
-        script = doc.find_all('script')[5].text.strip()
+        #script = doc.find_all('script')[5].text.strip()
 
         # game_data is a json file. The relevant fields are ['name'], ['location']['name'], ['awayTeam']['name'],
         # ['homeTeam']['name'], ['startDate']
-        game_data = json.loads(script)
+        #game_data = json.loads(script)
 
         # odds is a list with a bunch of the betting values staggered in the following way: P/S away, P/S payout away, P/S home,
         # P/S payout home, etc.
