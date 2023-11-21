@@ -6,6 +6,11 @@ from .models import Game, Results, PlacedBet, UserStats, FinisedBet
 
 def data_scrape(url):
 
+    # If upcoming games exist in the db, delete them so only the upcoming games are in there
+    future_games = Game.objects.all()
+    if future_games:
+        future_games.delete()
+
     # Web Scraper for upcoming week of games
     #url = "https://www.lines.com/betting/ncaaf/odds"
     result = requests.get(url)

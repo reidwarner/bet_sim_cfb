@@ -12,9 +12,15 @@ class Command(BaseCommand):
         parser.add_argument('url', type=str)
 
     def handle(self, *args, **options):
-        url = options.get('url')
         # Web Scraper for upcoming week of games
         # url = "https://www.lines.com/betting/ncaaf/odds"
+        # If upcoming games exist in the db, delete them so only the upcoming games are in there
+
+        future_games = Game.objects.all()
+        if future_games:
+            future_games.delete()
+
+        url = options.get('url')
         result = requests.get(url)
         doc = BeautifulSoup(result.text, "html.parser")
         script = doc.find_all('script')[5].text.strip()

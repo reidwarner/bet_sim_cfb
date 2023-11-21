@@ -8,7 +8,7 @@ from .scripts import data_scrape, result_scrape, check_bets
 
 
 def simulator(request):
-    #data_scrape(url='https://www.lines.com/betting/ncaaf/odds/best-line/0?week=9')
+    #data_scrape(url='https://www.lines.com/betting/ncaaf/odds/best-line/0?week=13')
     upcoming_games = Game.objects.all().values()
     template = loader.get_template('simulator.html')
     context = {
